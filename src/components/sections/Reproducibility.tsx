@@ -64,7 +64,7 @@ export function Reproducibility() {
 
         <div className="grid gap-4">
           <a
-            href="https://github.com/saifnizami/ssl-benchmark"
+            href="https://github.com/saif-nizami/lejepa-comparison-framework"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
@@ -84,7 +84,7 @@ export function Reproducibility() {
           </a>
 
           <a
-            href="/dissertation.pdf"
+            href="/public/files/Dissertation_IRP_2026_CU.pdf"
             className="flex items-center justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
           >
             <div className="flex items-center gap-4">

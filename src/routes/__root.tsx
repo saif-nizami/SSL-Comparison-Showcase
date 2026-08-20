@@ -148,6 +148,7 @@ const navItems = [
   { label: "Framework", href: "#framework" },
   { label: "Results", href: "#results" },
   { label: "Embeddings", href: "#embeddings" },
+  { label: "Confusion Matrix", href: "#confusionmatrix" },
   { label: "Findings", href: "#findings" },
   { label: "Reproduce", href: "#reproduce" },
 ];

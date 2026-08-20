@@ -7,6 +7,7 @@ import { Methods } from "@/components/sections/Methods";
 import { ExperimentalFramework } from "@/components/sections/ExperimentalFramework";
 import { Results } from "@/components/sections/Results";
 import { Embeddings } from "@/components/sections/Embeddings";
+import { ConfusionMatrix } from "@/components/sections/ConfusionMatrix";
 import { Findings } from "@/components/sections/Findings";
 import { Reproducibility } from "@/components/sections/Reproducibility";
 import { Footer } from "@/components/sections/Footer";
@@ -47,6 +48,7 @@ function Index() {
       <ExperimentalFramework />
       <Results />
       <Embeddings />
+      <ConfusionMatrix/>
       <Findings />
       <Reproducibility />
       <Footer />

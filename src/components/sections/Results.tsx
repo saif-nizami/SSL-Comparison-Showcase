@@ -13,11 +13,11 @@ import {
 } from "recharts";
 
 const accuracyData = [
-  { method: "SimCLR", linear: 84.2, finetuned: 91.5, knn: 79.4 },
-  { method: "BYOL", linear: 85.1, finetuned: 92.0, knn: 80.2 },
-  { method: "VICReg", linear: 83.8, finetuned: 90.8, knn: 78.1 },
-  { method: "Barlow", linear: 84.5, finetuned: 91.2, knn: 79.0 },
-  { method: "LeJEPA", linear: 86.3, finetuned: 93.1, knn: 82.5 },
+  { method: "SimCLR", linear: 75.21, finetuned: 78.82, knn: 79.4 },
+  { method: "BYOL", linear: 72.98, finetuned: 73.99, knn: 80.2 },
+  { method: "VICReg", linear: 60.92, finetuned: 65.80, knn: 78.1 },
+  { method: "Barlow", linear: 69.97, finetuned: 71.70, knn: 79.0 },
+  { method: "LeJEPA", linear: 90.03, finetuned: 92.31, knn: 82.5 },
 ];
 
 const convergenceData = [
@@ -34,18 +34,11 @@ const convergenceData = [
 ];
 
 const tableData = [
-  { method: "SimCLR", linear: 84.2, finetuned: 91.5, knn: 79.4, time: "1.0×", params: "11.2M" },
-  { method: "BYOL", linear: 85.1, finetuned: 92.0, knn: 80.2, time: "1.05×", params: "22.4M" },
-  { method: "VICReg", linear: 83.8, finetuned: 90.8, knn: 78.1, time: "1.02×", params: "11.2M" },
-  {
-    method: "Barlow Twins",
-    linear: 84.5,
-    finetuned: 91.2,
-    knn: 79.0,
-    time: "1.03×",
-    params: "11.2M",
-  },
-  { method: "LeJEPA", linear: 86.3, finetuned: 93.1, knn: 82.5, time: "1.12×", params: "12.8M" },
+  { method: "SimCLR", linear: 75.21, finetuned: 78.82, knn: 79.4, time: "0.11s", params: "11.17M" },
+  { method: "BYOL", linear: 72.98, finetuned: 73.99, knn: 80.2, time: "0.11s", params: "11.17M" },
+  { method: "VICReg", linear: 60.92, finetuned: 65.80, knn: 78.1, time: "0.11s", params: "11.17M" },
+  { method: "Barlow Twins", linear: 69.97, finetuned: 71.70, knn: 79.0, time: "0.11s", params: "11.17M" },
+  { method: "LeJEPA", linear: 90.03, finetuned: 92.31, knn: 82.5, time: "0.11s", params: "11.17M" },
 ];
 
 const colours = {
@@ -94,12 +87,12 @@ export function Results() {
                   fill="var(--accent)"
                   radius={[4, 4, 0, 0]}
                 />
-                <Bar
+                {/* <Bar
                   dataKey="knn"
                   name="k-NN"
                   fill="var(--muted-foreground)"
                   radius={[4, 4, 0, 0]}
-                />
+                /> */}
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -145,8 +138,8 @@ export function Results() {
                 <th className="px-6 py-4 text-left font-semibold text-foreground">Method</th>
                 <th className="px-6 py-4 text-right font-semibold text-foreground">Linear probe</th>
                 <th className="px-6 py-4 text-right font-semibold text-foreground">Fine-tuned</th>
-                <th className="px-6 py-4 text-right font-semibold text-foreground">k-NN</th>
-                <th className="px-6 py-4 text-right font-semibold text-foreground">Train time</th>
+                {/* <th className="px-6 py-4 text-right font-semibold text-foreground">k-NN</th> */}
+                <th className="px-6 py-4 text-right font-semibold text-foreground">Inference time</th>
                 <th className="px-6 py-4 text-right font-semibold text-foreground">Params</th>
               </tr>
             </thead>
@@ -160,9 +153,9 @@ export function Results() {
                   <td className="px-6 py-4 text-right tabular-nums text-muted-foreground">
                     {row.finetuned}%
                   </td>
-                  <td className="px-6 py-4 text-right tabular-nums text-muted-foreground">
+                  {/* <td className="px-6 py-4 text-right tabular-nums text-muted-foreground">
                     {row.knn}%
-                  </td>
+                  </td> */}
                   <td className="px-6 py-4 text-right tabular-nums text-muted-foreground">
                     {row.time}
                   </td>
