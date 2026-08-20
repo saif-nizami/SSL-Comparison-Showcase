@@ -86,6 +86,7 @@ export function Reproducibility() {
           <a
             href="/public/files/Dissertation_IRP_2026_CU.pdf"
             className="flex items-center justify-between rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+            download
           >
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
