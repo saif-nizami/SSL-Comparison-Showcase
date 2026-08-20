@@ -7,10 +7,25 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const themeStorageKey = "ssl-benchmark-theme";
+
+const themeScript = `
+  (() => {
+    try {
+      const savedTheme = localStorage.getItem('${themeStorageKey}');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', savedTheme ? savedTheme === 'dark' : prefersDark);
+    } catch {
+      // Keep the light theme if browser storage is unavailable.
+    }
+  })();
+`;
 
 function NotFoundComponent() {
   return (
@@ -119,9 +134,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
         {children}
@@ -154,6 +170,27 @@ const navItems = [
 ];
 
 function Header() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const nextThemeIsDark = !root.classList.contains("dark");
+
+    // The class is scoped to user-initiated switches, avoiding a transition on page load.
+    root.classList.add("theme-transition");
+    requestAnimationFrame(() => {
+      root.classList.toggle("dark", nextThemeIsDark);
+      window.setTimeout(() => root.classList.remove("theme-transition"), 350);
+    });
+
+    localStorage.setItem(themeStorageKey, nextThemeIsDark ? "dark" : "light");
+    setIsDark(nextThemeIsDark);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -177,6 +214,17 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            aria-pressed={isDark}
+            className="group relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-muted-foreground shadow-sm transition-all hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <Sun className="theme-icon-sun absolute h-[18px] w-[18px]" />
+            <Moon className="theme-icon-moon absolute h-[18px] w-[18px]" />
+            <span className="sr-only">Switch color theme</span>
+          </button>
           <a
             href="#reproduce"
             className="hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:inline-flex"
