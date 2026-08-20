@@ -3,7 +3,7 @@ import { Github, FileText, ExternalLink, Copy, Check } from "lucide-react";
 import { useState } from "react";
 
 const installCommand =
-  "git clone https://github.com/saif-nizami/lejepa-comparison-framework\ncd ssl-benchmark && pip install -r requirements.txt\npython scripts.train --method lejepa --dataset cifar10\npython scripts.linear_probe --method lejepa --dataset cifar10";
+  "git clone https://github.com/saif-nizami/lejepa-comparison-framework\ncd lejepa-comparison-framework && pip install -r requirements.txt\npython -m scripts.train --method lejepa --dataset cifar10\npython -m scripts.linear_probe --method lejepa --dataset cifar10";
 
 export function Reproducibility() {
   const [copied, setCopied] = useState(false);
@@ -52,7 +52,7 @@ export function Reproducibility() {
             with <code className="rounded bg-muted px-1 py-0.5 text-foreground">simclr</code>,{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-foreground">byol</code>,{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-foreground">vicreg</code>, or{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-foreground">barlow</code> to run
+            <code className="rounded bg-muted px-1 py-0.5 text-foreground">barlow_twins</code> to run
             other methods.
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
