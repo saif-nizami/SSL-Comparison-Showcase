@@ -14,7 +14,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/saifnizami"
+              href="https://github.com/saif-nizami"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
@@ -23,7 +23,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/saifnizami"
+              href="https://www.linkedin.com/in/saif-nizami/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
@@ -32,7 +32,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:saif.nizami@example.com"
+              href="mailto:saifnizami.official@gmail.com"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
               aria-label="Email"
             >
