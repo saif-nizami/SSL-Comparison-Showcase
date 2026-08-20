@@ -56,7 +56,7 @@ const views: Record<string, Record<string, View>> = {
   "STL-10": {
     "t-SNE": {
       blurb:
-        "t-SNE of frozen features on the higher-resolution STL-10 test set, coloured by class. STL-10's 96x96 images and smaller labelled split make the separation test noticeably harder than CIFAR-10.",
+        "A confusion matrix shows the model’s classification performance by comparing actual labels (rows) with predicted labels (columns). Higher diagonal values indicate more correct predictions, while off-diagonal values represent misclassifications.",
       caption:
         "Perplexity 30, 1,000 iterations, PCA-50 initialisation, evaluated on a labelled STL-10 subset. Same backbone and transfer protocol as the CIFAR-10 runs.",
       plots: [
